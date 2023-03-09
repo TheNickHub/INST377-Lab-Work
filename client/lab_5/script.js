@@ -26,11 +26,9 @@ async function mainEvent() { // the async keyword means we can make API requests
   mainForm.addEventListener('submit', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
     
     // This prevents your page from becoming a list of 1000 records from the county, even if your form still has an action set on it
-    submitEvent.preventDefault(); 
-    
+    submitEvent.preventDefault();
     // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
     console.log('form submission'); 
-
     /*
       ## GET requests and Javascript
         We would like to send our GET request so we can control what we do with the results
@@ -43,7 +41,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     */
 
     // Basic GET request - this replaces the form Action
-    const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
+    const results = await fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json");
 
     // This changes the response from the GET into data we can use - an "object"
     currentList = await results.json();
@@ -57,7 +55,12 @@ async function mainEvent() { // the async keyword means we can make API requests
   });
 
   filterButton.addEventListener('click', (event) => {
-    console.log('Clicked FilterButton');
+    console.log('clicked FilterButton');
+    const FormData = new FormData(mainForm);
+    const formProps = Object.fromEntries(formData);
+    
+    console.log(formProps);
+
   })
 
   /*
