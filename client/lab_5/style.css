@@ -266,6 +266,7 @@
   
   .prev:hover,
   .next:hover {
+    background-color: blue;
     /* Pick a good background colour for your hover pseudoclass */
   }
   
@@ -310,7 +311,7 @@
         align-items: center;
       }
   }
-  
+
 /*
     Add a flexbox class that will keep two buttons nicely styled next to one another
     under your HTML form and input field
