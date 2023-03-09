@@ -1,10 +1,10 @@
-/*
-  Hook this script to index.html
-  by adding `<script src="script.js">` just before your closing `</body>` tag
-*/
 
-/* A quick filter that will return something based on a matching input */
 function filterList(list, query) {
+  return list.filter((item) => {
+    const lowerCaseName = item.name.toLowerCase();  
+    const lowerCaseQuery = query.toLowerCase();  
+    return lowerCaseName.includes(lowerCaseQuery);
+  })
   /*
     Using the .filter array method, 
     return a list that is filtered by comparing the item name in lower case
@@ -41,7 +41,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     */
 
     // Basic GET request - this replaces the form Action
-    const results = await fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json");
+    const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
 
     // This changes the response from the GET into data we can use - an "object"
     currentList = await results.json();
@@ -56,10 +56,12 @@ async function mainEvent() { // the async keyword means we can make API requests
 
   filterButton.addEventListener('click', (event) => {
     console.log('clicked FilterButton');
-    const FormData = new FormData(mainForm);
+    
+    const formData = new FormData(mainForm);
     const formProps = Object.fromEntries(formData);
     
     console.log(formProps);
+    const newList = filterList(currentList, formProps.resto);
 
   })
 
