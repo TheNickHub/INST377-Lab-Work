@@ -85,4 +85,4 @@ function getRandomIntInclusive(min, max) {
   }
   
   document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the async keyword means we can make API requests
-  
+    
