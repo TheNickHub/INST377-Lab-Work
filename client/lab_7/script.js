@@ -64,6 +64,7 @@ async function mainEvent() {
     // This changes the response from the GET into data we can use - an "object"
     const storedList = await results.json();
     localStorage.setItem("storedData", JSON.stringify(storedList));
+    parsedData = storedList;
 
     loadAnimation.style.display = "none";
     // console.table(storedList);
