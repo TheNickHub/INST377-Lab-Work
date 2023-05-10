@@ -14,31 +14,42 @@
       <div class="container">
         <div class="left_section box">
           <h2>Form Inputs</h2>
-          <form class="box main_form"
+          <form
             action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
+            class="box main_form"
           >
+            <button type="button" id="data_load">Load County Data</button>
             <div>
-              <label for="resto">Filter By Restaurant Name</label>
-              <input type="text" name="resto" id="resto">
+              <label for="resto">Restaurant Name</label>
+              <input type="text" id="resto" name="resto" />
             </div>
             <div class="buttons">
-                <button type="button" id="data_load">Load County Data</button>
-                <button type="button" id="generate">Generate List</button>
+              <button type="button" id="filter_button">Filter Data</button>
+              <button type="button" id="generate" class="hidden">
+                Generate List
+              </button>
             </div>
           </form>
         </div>
         <div class="right_section box">
-
-          <h2>Local Restaurant List</h2>
+          <h2>Local Restaurants</h2>
           <ol class="box" id="restaurant_list">
-            A list of local restaurants
-            </ol>
-            <div class="lds-ellipsis" id="data_load_animation"><div></div><div></div><div></div><div></div>
+            A List of Local Restaurants
+          </ol>
+          <div class="lds-ellipsis" id="load_animation">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
       </div>
+
       <footer class="footer">
-        <a href="https://github.com/TheNickHub/INST377-Lab-Work.git"
+        <a
+          href="https://github.com/TheNickHub/INST377-Lab-Work.git"
+          target="_blank"
+          rel="noopener noreferrer"
           >TheNickHub</a
         >
       </footer>
